@@ -1,0 +1,22 @@
+{
+  "name": "LetsStream Popup Killer",
+  "description": "Blocks any tab or window opened by letsstream2.pages.dev",
+  "version": "1.0",
+  "manifest_version": 3,
+
+  "permissions": ["tabs", "webNavigation"],
+
+  "host_permissions": ["*://letsstream2.pages.dev/*"],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://letsstream2.pages.dev/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
